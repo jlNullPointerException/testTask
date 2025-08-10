@@ -18,7 +18,7 @@ public class ShortenTest {
     @Test
     public void successfulTest() throws IOException {
         String filePath = "F:\\testdata\\cleanuri\\PositiveCases.txt";
-        testData = TestUtils.readTestData(filePath);
+        testData = TestUtils.getTestData(filePath);
 
         for (String input: testData) {
             String jsonBody = TestUtils.makeJsonBodyParam(PARAM, input);
@@ -39,7 +39,7 @@ public class ShortenTest {
     public void incorrectSymbolTest() throws IOException {
         String filePath = "F:\\testdata\\cleanuri\\NegativeCases.txt";
         String errorText = "API Error: URL is invalid";
-        testData = TestUtils.readTestData(filePath);
+        testData = TestUtils.getTestData(filePath);
 
         for (String input: testData) {
             String jsonBody = TestUtils.makeJsonBodyParam(PARAM, input);
@@ -57,7 +57,7 @@ public class ShortenTest {
     }
 
     @Test
-    public void emptyTest() throws IOException {
+    public void emptyTest() {
         String errorText = "API Error: After sanitization URL is empty";
         String input = "";
 

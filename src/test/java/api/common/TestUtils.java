@@ -7,12 +7,8 @@ import java.util.List;
 
 public class TestUtils {
 
-    public static List<String> readTestData(String filePath) throws IOException {
-        return Files.readAllLines(Paths.get(filePath));
-    }
-
     public static List<String> getTestData(String filePath) throws IOException {
-        return readTestData(filePath);
+        return Files.readAllLines(Paths.get(filePath));
     }
 
     public static String getShortUrl(String longUrl) {

@@ -52,7 +52,7 @@ public class ShortenTest {
                     .then().log().all()
                     .extract().body().jsonPath().getString("error");
 
-              assertThat(response).contains(errorText);
+            assertThat(response).contains(errorText);
         }
     }
 

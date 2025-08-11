@@ -20,14 +20,15 @@ public class ShortenTest {
         String filePath = "F:\\testdata\\cleanuri\\PositiveCases.txt";
         testData = TestUtils.getTestData(filePath);
 
+        Specifications.installSpecification(Specifications.requestSpec(URL), Specifications.responseStatus(200));
+
         for (String input: testData) {
             String jsonBody = TestUtils.makeJsonBodyParam(PARAM, input);
-            Specifications.installSpecification(Specifications.requestSpec(input), Specifications.responseStatus(200));
 
             String response = given()
                     .body(jsonBody)
                     .when().log().all()
-                    .post(URL)
+                    .post()
                     .then().log().all()
                     .extract().body().jsonPath().getString("result_url");
 
@@ -41,14 +42,15 @@ public class ShortenTest {
         String errorText = "API Error: URL is invalid";
         testData = TestUtils.getTestData(filePath);
 
+        Specifications.installSpecification(Specifications.requestSpec(URL), Specifications.responseStatus(400));
+
         for (String input: testData) {
             String jsonBody = TestUtils.makeJsonBodyParam(PARAM, input);
-            Specifications.installSpecification(Specifications.requestSpec(input), Specifications.responseStatus(400));
 
             String response = given()
                     .body(jsonBody)
                     .when().log().all()
-                    .post(URL)
+                    .post()
                     .then().log().all()
                     .extract().body().jsonPath().getString("error");
 
@@ -62,12 +64,12 @@ public class ShortenTest {
         String input = "";
 
         String jsonBody = TestUtils.makeJsonBodyParam(PARAM, input);
-        Specifications.installSpecification(Specifications.requestSpec(input), Specifications.responseStatus(400));
+        Specifications.installSpecification(Specifications.requestSpec(URL), Specifications.responseStatus(400));
 
         String response = given()
                 .body(jsonBody)
                 .when().log().all()
-                .post(URL)
+                .post()
                 .then().log().all()
                 .extract().body().jsonPath().getString("error");
 

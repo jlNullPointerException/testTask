@@ -1,9 +1,12 @@
 package api.common;
 
+import org.junit.jupiter.params.provider.Arguments;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class TestUtils {
 
@@ -17,5 +20,11 @@ public class TestUtils {
 
     public static String makeJsonBodyParam(String key, String value) {
         return  "{ \"" + key + "\": \"" + value.replace("\"", "\\\"") + "\" }";
+    }
+
+    @SafeVarargs
+    public static Stream<Arguments> mergeStreams(Stream<Arguments>... streams) {
+        return Stream.of(streams)
+                .flatMap(s -> s);
     }
 }

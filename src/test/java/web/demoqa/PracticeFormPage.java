@@ -10,9 +10,9 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class PracticeFormPage {
-    private final static String URL_PATH = "/automation-practice-form";
+    private static final String URL_PATH = "/automation-practice-form";
 
-    private SelenideElement
+    private final SelenideElement
             firstName = $("#firstName"),
             lastName = $("#lastName"),
             userEmail = $("#userEmail"),

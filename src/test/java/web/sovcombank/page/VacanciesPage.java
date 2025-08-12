@@ -1,6 +1,8 @@
 package web.sovcombank.page;
 
+import api.common.TestUtils;
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.WebDriverRunner;
 import org.openqa.selenium.By;
@@ -13,13 +15,20 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class VacanciesPage {
+
     public VacanciesPage() {
-//        $x(".//*[@class='vacancies__title']")
-//                .shouldHave(Condition.exactText(" Вакансии в Совкомбанке "));
+//        Configuration.pageLoadStrategy = "normal";
+        $x(".//*[@class='vacancies__title']")
+                .shouldHave(Condition.exactText(" Вакансии в Совкомбанке "));
+        sleep(5000);
+//        $(By.tagName("body")).shouldBe(Condition.exist);
+//        com.codeborne.selenide.Selenide.executeJavaScript("return document.readyState").equals("complete");
+
     }
 
     public VacanciesPage openPage() {
-        open("https://people.sovcombank.ru/vacancies");
+//        open("https://people.sovcombank.ru/vacancies");
+        open(TestUtils.getPageUrl());
         WebDriverRunner.getWebDriver().manage().window().maximize();
         return this;
     }
@@ -34,10 +43,6 @@ public class VacanciesPage {
         $$x(".//*[@class='multiselect ui-selector']").get(1).should(appear).click();
         $x(".//*[@class='multiselect__element' and .//span[contains(text(), '" + company + "')]]")
                 .should(appear).click();
-//        $x(".//*[@class='multiselect__element' and .//span[contains(text(), '" + company + "')]]")
-//                .scrollTo()
-//        $x(".//*[@class='ui-checkbox__label-text' and .//span[contains(text(), '" + company + "')]]")
-//                .should(appear).click();
         return this;
     }
 
@@ -48,14 +53,6 @@ public class VacanciesPage {
 
     public ElementsCollection getElementsVacanciesList() {
         return $$x(".//*[@class='vacancy-card vacancies__card']");
-    }
-
-    public List<String> getHrefVacanciesList() {
-        return getElementsVacanciesList()
-                .stream()
-                .map(x -> x.find(By.tagName("a"))
-                       .getAttribute("href"))
-                .collect(Collectors.toList());
     }
 
     public List<String> getCityVacanciesList() {

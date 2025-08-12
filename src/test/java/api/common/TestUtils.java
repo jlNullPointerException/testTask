@@ -1,5 +1,6 @@
 package api.common;
 
+import com.codeborne.selenide.WebDriverRunner;
 import org.junit.jupiter.params.provider.Arguments;
 
 import java.io.IOException;
@@ -21,6 +22,11 @@ public class TestUtils {
     public static String makeJsonBodyParam(String key, String value) {
         return  "{ \"" + key + "\": \"" + value.replace("\"", "\\\"") + "\" }";
     }
+
+    public static String getPageUrl() {
+        return WebDriverRunner.url();
+    }
+
 
     @SafeVarargs
     public static Stream<Arguments> mergeStreams(Stream<Arguments>... streams) {

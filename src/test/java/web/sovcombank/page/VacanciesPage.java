@@ -26,7 +26,7 @@ public class VacanciesPage {
         title.shouldHave(Condition.exactText(TITLE_TEXT));
     }
 
-    public VacanciesPage openPage() {
+    public VacanciesPage reloadPage() {
         open(TestUtils.getPageUrl());
         WebDriverRunner.getWebDriver().manage().window().maximize();
         return this;

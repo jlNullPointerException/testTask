@@ -19,7 +19,7 @@ public class JobFilterTest extends BaseTest{
         VacanciesPage selectVacanciesPage = new StartPage()
                 .openPage()
                 .clickVacancies()
-                .openPage()
+                .reloadPage()
                 .selectCity(city)
                 .selectCompany(company)
                 .confirmSelect();

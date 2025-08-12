@@ -96,7 +96,7 @@ public class PracticeFormPage {
     }
 
     public PracticeFormPage clickSubmit() {
-        submit.click();
+        submit.scrollTo().click();
         return this;
     }
 

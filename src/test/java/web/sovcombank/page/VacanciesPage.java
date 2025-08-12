@@ -23,16 +23,10 @@ public class VacanciesPage {
             vacanciesList = $$x(".//*[@class='vacancy-card vacancies__card']");
 
     public VacanciesPage() {
-//        Configuration.pageLoadStrategy = "normal";
         title.shouldHave(Condition.exactText(TITLE_TEXT));
-        sleep(5000);
-//        $(By.tagName("body")).shouldBe(Condition.exist);
-//        com.codeborne.selenide.Selenide.executeJavaScript("return document.readyState").equals("complete");
-
     }
 
     public VacanciesPage openPage() {
-//        open("https://people.sovcombank.ru/vacancies");
         open(TestUtils.getPageUrl());
         WebDriverRunner.getWebDriver().manage().window().maximize();
         return this;

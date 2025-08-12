@@ -8,7 +8,7 @@ public class BaseTest {
 @BeforeAll
 protected static void openBasePage() {
     Configuration.browser = "chrome";
-    Configuration.holdBrowserOpen = true;
+    Configuration.holdBrowserOpen = false;
     Configuration.timeout = 5000;
     }
 }

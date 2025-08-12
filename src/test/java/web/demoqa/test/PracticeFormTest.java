@@ -1,6 +1,7 @@
-package web.demoqa;
+package web.demoqa.test;
 
 import org.junit.jupiter.api.Test;
+import web.demoqa.page.PracticeFormPage;
 
 import java.util.List;
 import java.util.stream.Collectors;

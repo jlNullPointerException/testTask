@@ -1,4 +1,4 @@
-package web.demoqa;
+package web.demoqa.page;
 
 import com.codeborne.selenide.SelenideElement;
 
@@ -19,10 +19,14 @@ public class PracticeFormPage {
             gender = $x(".//*[@class='practice-form-wrapper']"),
             userNumber = $("#userNumber"),
             dateOfBirth = $x(".//*[@id='dateOfBirthInput']"),
+            monthSelect = $x(".//*[@class='react-datepicker__month-select']"),
+            yearSelect = $x(".//*[@class='react-datepicker__year-select']"),
             subject = $("#subjectsInput"),
             hobby = $("#hobbiesWrapper"),
             picture = $("#uploadPicture"),
             address = $("#currentAddress"),
+            formWithStateAndCity = $x(".//*[@class=' css-1wa3eu0-placeholder']"),
+            listStateAndCity = $("#stateCity-wrapper"),
             submit = $("#submit"),
             resultTableHeader = $x(".//*[@class='modal-header']"),
             resultTable = $x(".//*[@class='table-responsive']")
@@ -61,8 +65,8 @@ public class PracticeFormPage {
 
     public PracticeFormPage setDateOfBirth(String day, String month, String year) {
         dateOfBirth.click();
-        $x(".//*[@class='react-datepicker__month-select']").$(byText(month)).click();
-        $x(".//*[@class='react-datepicker__year-select']").$(byText(year)).click();
+        monthSelect.$(byText(month)).click();
+        yearSelect.$(byText(year)).click();
         $x(".//*[@class='react-datepicker__day react-datepicker__day--0" + day + "']").click();
         return this;
     }
@@ -88,10 +92,11 @@ public class PracticeFormPage {
     }
 
     public PracticeFormPage selectStateAndCity(String state, String city) {
-        $x(".//*[@class=' css-1wa3eu0-placeholder']").scrollTo().click();
-        $("#stateCity-wrapper").$(byText(state)).click();
-        $x(".//*[@class=' css-1wa3eu0-placeholder']").scrollTo().click();
-        $("#stateCity-wrapper").$(byText(city)).click();
+        formWithStateAndCity.scrollTo().click();
+        listStateAndCity.$(byText(state)).click();
+//        formWithStateAndCity.scrollTo().click();
+        formWithStateAndCity.click();
+        listStateAndCity.$(byText(city)).click();
         return this;
     }
 

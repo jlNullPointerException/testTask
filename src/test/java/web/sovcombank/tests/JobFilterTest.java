@@ -25,7 +25,7 @@ public class JobFilterTest extends BaseTest{
                 .confirmSelect();
 
         sleep(5000);
-        List<String> vacanciesTagList = selectVacanciesPage.getCityVacanciesList();
+        List<String> vacanciesTagList = selectVacanciesPage.getVacanciesTagList();
 
         assertThat(vacanciesTagList.stream().allMatch(t -> t.contains(city))).isTrue();
         assertThat(vacanciesTagList.stream().allMatch(t -> t.contains(company))).isTrue();

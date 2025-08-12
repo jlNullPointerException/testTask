@@ -18,5 +18,4 @@ public class ResultParam {
         return Arrays.stream(values)
                 .map(value -> Arguments.of(KEY, value));
     }
-
 }

@@ -11,7 +11,6 @@ public class StartPage {
     private static final String BASE_URL = "https://people.sovcombank.ru/";
     private final SelenideElement vacancies = $(By.xpath("//a[contains(text(), 'Вакансии')]"));
 
-
     public StartPage openPage() {
         open(BASE_URL);
         WebDriverRunner.getWebDriver().manage().window().maximize();
@@ -22,7 +21,4 @@ public class StartPage {
         vacancies.click();
         return new  VacanciesPage();
     }
-
-
-
 }

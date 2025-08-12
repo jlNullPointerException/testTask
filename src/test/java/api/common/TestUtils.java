@@ -27,7 +27,6 @@ public class TestUtils {
         return WebDriverRunner.url();
     }
 
-
     @SafeVarargs
     public static Stream<Arguments> mergeStreams(Stream<Arguments>... streams) {
         return Stream.of(streams)

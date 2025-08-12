@@ -30,5 +30,4 @@ public class JobFilterTest extends BaseTest{
         assertThat(vacanciesTagList.stream().allMatch(t -> t.contains(city))).isTrue();
         assertThat(vacanciesTagList.stream().allMatch(t -> t.contains(company))).isTrue();
     }
-
 }

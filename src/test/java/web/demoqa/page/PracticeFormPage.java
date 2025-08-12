@@ -29,9 +29,7 @@ public class PracticeFormPage {
             listStateAndCity = $("#stateCity-wrapper"),
             submit = $("#submit"),
             resultTableHeader = $x(".//*[@class='modal-header']"),
-            resultTable = $x(".//*[@class='table-responsive']")
-
-    ;
+            resultTable = $x(".//*[@class='table-responsive']");
 
     public PracticeFormPage openPage() {
         open(URL_PATH);
@@ -121,5 +119,4 @@ public class PracticeFormPage {
     public String getValueByKey(String key) {
         return getTableDataAsMap().get(key);
     }
-
 }

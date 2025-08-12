@@ -81,6 +81,5 @@ public class PracticeFormTest extends BaseTest{
                 .isEqualTo(firstName + " " + lastName);
         assertThat(result.getValueByKey("Gender")).isEqualTo(gender);
         assertThat(result.getValueByKey("Mobile")).isEqualTo(userNumber);
-
     }
 }
